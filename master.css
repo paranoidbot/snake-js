@@ -10,8 +10,8 @@ body {
 
 #gameboard {
   background-color: #CCC;
-  height: 100vmin;
-  width: 100vmin;
+  height: 90%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(21, 1fr);
   grid-template-rows: repeat(21, 1fr);
@@ -26,4 +26,49 @@ body {
 .food {
   background-color: yellow;
   border: 0.25vmin solid black;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  height: 100vmin;
+  width: 100vmin;
+}
+
+.game-header {
+  display: flex;
+  background-color: gray;
+  height: 10%;
+  width: 100%;
+}
+
+.header-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 33.3333%;
+  height: 100%;
+}
+
+#game-logo{
+  display: block;
+}
+
+#logo-img {
+  width: auto;
+  height: 100%;
+}
+
+.score {
+  color: #94C120;
+  font-weight: bold;
+}
+
+.header-btn {
+  padding: 0.5%;
+  width: 75%;
+  background-color: #94C120;
+  color: gray;
+  font-weight: bold;
 }
