@@ -47,17 +47,22 @@ function checkDeath(){
   gameStatus.gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }
 
-function pause(){
+window.pause = function pause(){
   gameStatus.gamePaused = true;
 }
 
-function unpause(){
+window.resume = function resume(){
   gameStatus.gamePaused = false;
   window.requestAnimationFrame(main);
 }
 
-function restartGame(){
+window.restartGame = function restartGame(){
+
   gameboard.innerHTML = '';
   resetSnake();
   resetFood();
+  if (gameStatus.gamePaused == true) {
+    gameStatus.gamePaused = false;
+    window.requestAnimationFrame(main);
+  }
 }

@@ -4,6 +4,7 @@
     <meta charset="utf-8" name="viewport" content="initial-scale=1.0" >
     <title>Snake in Javascript</title>
     <link rel="stylesheet" href="master.css">
+    <script type="module"  src='game.js'> </script>
     </head>
   <body>
     <div class="game">
@@ -14,8 +15,9 @@
 
         <div class="game-controls header-item">
 
-            <button type="button" name="button" class = 'header-btn' id="restart">Restart</button>
-            <button type="button" name="button" class = 'header-btn'>Pause</button>
+            <button type="button" name="button" class = 'header-btn' onclick="restartGame()">Restart</button>
+            <button type="button" name="button" class = 'header-btn' onclick='pause()'>Pause</button>
+              <button type="button" name="button" class = 'header-btn' onclick='resume()'>Resume</button>
 
         </div>
 
@@ -34,7 +36,7 @@
 
     </div>
 
-    <script type="module"  src='game.js' defer> </script>
+
 
 
   </body>
