@@ -1,8 +1,8 @@
-import { getInputDirection } from "./input.js"
+import { getInputDirection, reset as resetDirection} from "./input.js";
 
-export const SNAKE_SPEED = 5
-const snakeBody = [{ x: 11, y: 11 }]
-let newSegments = 0
+export const SNAKE_SPEED = 5;
+let snakeBody = [{ x: 11, y: 11 }];
+let newSegments = 0;
 
 export function update() {
   addSegments()
@@ -15,8 +15,8 @@ export function update() {
   }
 
   //move snake head
-  snakeBody[0].x += inputDirection.x
-  snakeBody[0].y += inputDirection.y
+  snakeBody[0].x += inputDirection.x;
+  snakeBody[0].y += inputDirection.y;
 }
 
 export function draw(gameBoard) {
@@ -30,7 +30,7 @@ export function draw(gameBoard) {
 }
 
 export function expandSnake(amount) {
-  newSegments += amount
+  newSegments += amount;
 }
 
 export function onSnake(position, { ignoreHead = false } = {}) {
@@ -60,4 +60,9 @@ function addSegments() {
   }
 
   newSegments = 0
+}
+
+export function reset() {
+  snakeBody = [{ x: 11, y: 11 }];
+  resetDirection();
 }

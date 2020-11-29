@@ -28,3 +28,8 @@ export function getInputDirection(){
   lastInputDirection = inputDirection; //this prevents the snake makin 180 degrees turns
   return inputDirection;
 }
+
+export function reset() {
+  inputDirection = { x:0, y:0};
+  lastInputDirection = {x:0, y:0};
+}
