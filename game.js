@@ -5,8 +5,10 @@ import {outsideGrid} from './grid.js';
 
 let lastRenderTime = 0;
 let gameboard = document.getElementById('gameboard');
-let gameStatus = { gameOver: false, gamePaused: false}
-
+let gameStatus = {
+  gameOver: false, gamePaused: false,
+  score: 0, highscore: 0
+}
 //Game loop
 function main(currentTime) {
   if (gameStatus.gamePaused == true) {
@@ -31,6 +33,7 @@ function main(currentTime) {
 }
 window.requestAnimationFrame(main);
 
+//Game Status
 function update(){
   updateSnake();
   updateFood();
@@ -47,6 +50,21 @@ function checkDeath(){
   gameStatus.gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }
 
+export function incrementScore(){
+  gameStatus.score = Number(document.getElementById('current-score-counter').innerHTML);
+  gameStatus.score += 1;
+  document.getElementById('current-score-counter').innerHTML = gameStatus.score;
+
+  if (gameStatus.score > gameStatus.highscore){
+    gameStatus.highscore = gameStatus.score
+    document.getElementById('high-score-counter').innerHTML = gameStatus.score;
+  }
+
+
+
+}
+
+//UI controls
 window.pause = function pause(){
   gameStatus.gamePaused = true;
 }
@@ -57,7 +75,8 @@ window.resume = function resume(){
 }
 
 window.restartGame = function restartGame(){
-
+  document.getElementById('current-score-counter').innerHTML = 0;
+  gameStatus.score = 0;
   gameboard.innerHTML = '';
   resetSnake();
   resetFood();
@@ -65,4 +84,5 @@ window.restartGame = function restartGame(){
     gameStatus.gamePaused = false;
     window.requestAnimationFrame(main);
   }
+
 }
